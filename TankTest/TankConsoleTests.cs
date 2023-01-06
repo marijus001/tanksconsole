@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics.Metrics;
 using tanksconsole;
 
 namespace TankTest
@@ -7,9 +8,10 @@ namespace TankTest
     public class TankConsoleTests
     {
         [TestMethod()]
-        public void BrickTest()
+        public void GameTest()
         {
-            
+            Game game = new Game();
+            Assert.IsNotNull(game);
         }
 
         [TestMethod()]
@@ -23,6 +25,5 @@ namespace TankTest
         {
             
         }
-
     }
 }

@@ -53,8 +53,6 @@ namespace tanksconsole
         }
         public void Draw()
         {
-
-
             try
             {
                 Console.ForegroundColor = icon[0].color;

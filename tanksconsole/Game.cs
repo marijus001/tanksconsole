@@ -6,8 +6,9 @@ using System.Threading;
 
 namespace tanksconsole
 {
-    class Game
+    public partial class Game
     {
+        public string[] lines = System.IO.File.ReadAllLines(@"C:\Users\marij\source\repos\tanksconsole\tanksconsole\1.txt");
         public Game()
         {
             Console.CursorVisible = false;
@@ -22,7 +23,7 @@ namespace tanksconsole
             List<Entity> bricks = new List<Entity>();
             
 
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\marij\source\repos\tanksconsole\tanksconsole\1.txt");
+            //string[] lines = System.IO.File.ReadAllLines(@"C:\Users\marij\source\repos\tanksconsole\tanksconsole\1.txt");
             for(int i = 0; i < Constants.FIELD_SIZE; i++)
             {
                 for (int y = 0; y < Constants.FIELD_SIZE; y++)
