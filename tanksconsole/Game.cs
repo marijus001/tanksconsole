@@ -20,8 +20,7 @@ namespace tanksconsole
             //Constants.roomObjects[0].Draw(0);
 
             List<Entity> bricks = new List<Entity>();
-            List<Entity> waters = new List<Entity>();
-            List<Entity> bases = new List<Entity>();
+            
 
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\marij\source\repos\tanksconsole\tanksconsole\1.txt");
             for(int i = 0; i < Constants.FIELD_SIZE; i++)
@@ -34,11 +33,11 @@ namespace tanksconsole
                     }
                     if (lines[i][y] == '@')
                     {
-                        waters.Add(new Water(y, i));
+                        bricks.Add(new Water(y, i));
                     }
                     if (lines[i][y] == '%')
                     {
-                        bases.Add(new Base(y, i));
+                        bricks.Add(new Base(y, i));
                     }
                 }
             }
@@ -47,13 +46,10 @@ namespace tanksconsole
 
             Constants.roomObjects.Add(new PlayerTank(13, 22));
             DrawAllList(bricks);
-            DrawAllList(waters);
-            DrawAllList(bases);
-            Constants.roomObjects = Constants.roomObjects.Concat(bricks).ToList();
-            Constants.roomObjects = Constants.roomObjects.Concat(waters).ToList();
-            Constants.roomObjects = Constants.roomObjects.Concat(bases).ToList();
 
-            Constants.roomObjects.Add(new EnemyTank(0, 0));
+            Constants.roomObjects = Constants.roomObjects.Concat(bricks).ToList();
+            
+            Constants.roomObjects.Add(new EnemyTank(0, 0)); //initial enemy
 
             while (!Constants.gameOver)
             {
